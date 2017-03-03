@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Recall Search</string>
+    <string name="title_activity_cpscdetail">CPSCDetailActivity</string>
+    <string name="title_activity_cpscdetails">CPSCDetailsActivity</string>
+</resources>
