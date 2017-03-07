@@ -16,15 +16,18 @@ public class ListPresenter {
     DisplayResultsActivity mView;
     CPSCClient mCPSC;
     Observable<CombinedCPSCResponse> combined;
+    String keyword;
 
-    public ListPresenter(DisplayResultsActivity view, CPSCClient client) {
+    public ListPresenter(DisplayResultsActivity view, CPSCClient client, String keyword) {
 
         mView = view;
         mCPSC = client;
+        this.keyword = keyword;
     }
 
     public void loadRecalls() {
-        combined = mCPSC.getCombined();
+
+        combined = mCPSC.getInstanceOf().getCombined(keyword);
 
         combined.subscribe(new Subscriber<CombinedCPSCResponse>() {
 

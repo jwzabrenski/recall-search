@@ -19,22 +19,35 @@ import rx.schedulers.Schedulers;
  * Created by John on 2/18/2017.
  */
 public class CPSCClient {
-    private String keyword;
     private static Retrofit retrofit;
+    private static CPSCClient instance = null;
+    public static final String BASE_URL = "http://www.saferproducts.gov/RestWebServices/";
+
+    //TODO: make CPSCClient singleton instance
 
 
-    public CPSCClient(String keyword) {
-
-        this.keyword = keyword;
+    public CPSCClient() {
+        if (retrofit == null) {
+            buildRetrofit();
+        }
     }
 
-    public Observable<CombinedCPSCResponse> getCombined() {
+    public static CPSCClient getInstanceOf() {
+        if (instance == null){
+            instance = new CPSCClient();
+        }
+        return instance;
+    }
+
+    private void buildRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://www.saferproducts.gov/RestWebServices/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-        if(retrofit != null) {
+    }
+
+    public Observable<CombinedCPSCResponse> getCombined(String keyword) {
             Observable<List<RecallResponse>> CPSCProductNameObservable = retrofit
                     .create(CPSCProductName.class)
                     .getCPSCProductName(keyword)
@@ -56,10 +69,4 @@ public class CPSCClient {
 
             return combined;
         }
-        else{
-            return null;
-        }
-    }
-
-
 }
