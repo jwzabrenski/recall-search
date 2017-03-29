@@ -1,5 +1,5 @@
 
-package com.johnz.recallsearch.models;
+package com.johnz.recallsearch.models.cpsc;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.johnz.recallsearch.CPSCDetailsActivity;
 import com.johnz.recallsearch.R;
-import com.johnz.recallsearch.models.RecallResponse;
+import com.johnz.recallsearch.models.cpsc.CPSCResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class RecallsAdapter extends RecyclerView.Adapter<RecallsAdapter.RecallViewHolder> {
 
-    private List<RecallResponse> recalls = new ArrayList<>();
+    private List<CPSCResponse> recalls = new ArrayList<>();
     private int rowLayout;
     private Context context;
 
@@ -47,7 +47,7 @@ public class RecallsAdapter extends RecyclerView.Adapter<RecallsAdapter.RecallVi
         @Override
         public void onClick(View v) {
 
-            RecallResponse current = recalls.get(getAdapterPosition());
+            CPSCResponse current = recalls.get(getAdapterPosition());
             Intent intent = new Intent(context, CPSCDetailsActivity.class);
             intent.putExtra("current_details", current);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -57,7 +57,7 @@ public class RecallsAdapter extends RecyclerView.Adapter<RecallsAdapter.RecallVi
         }
     }
 
-    public void setRecalls(List<RecallResponse> recalls) {
+    public void setRecalls(List<CPSCResponse> recalls) {
         this.recalls.clear();
         this.recalls.addAll(recalls);
         this.notifyItemRangeInserted(0, this.recalls.size());

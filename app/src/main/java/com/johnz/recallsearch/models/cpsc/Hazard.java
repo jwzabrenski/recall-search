@@ -1,5 +1,5 @@
 
-package com.johnz.recallsearch.models;
+package com.johnz.recallsearch.models.cpsc;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

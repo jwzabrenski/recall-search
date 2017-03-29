@@ -3,7 +3,7 @@ package com.johnz.recallsearch.presenters;
 import android.util.Log;
 
 import com.johnz.recallsearch.DisplayResultsActivity;
-import com.johnz.recallsearch.models.CombinedCPSCResponse;
+import com.johnz.recallsearch.models.cpsc.CombinedCPSCResponse;
 import com.johnz.recallsearch.utilities.CPSCClient;
 
 import rx.Observable;
@@ -25,15 +25,14 @@ public class ListPresenter {
         this.keyword = keyword;
     }
 
+    //Get instance of CPSC client and subscribe to CPSC Observables, returns results of zip
     public void loadRecalls() {
 
         combined = mCPSC.getInstanceOf().getCombined(keyword);
-
         combined.subscribe(new Subscriber<CombinedCPSCResponse>() {
 
             @Override
             public void onNext(CombinedCPSCResponse o) {
-
                 mView.displayRecalls(o);
             }
 

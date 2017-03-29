@@ -1,6 +1,6 @@
 package com.johnz.recallsearch.rest;
 
-import com.johnz.recallsearch.models.RecallResponse;
+import com.johnz.recallsearch.models.cpsc.CPSCResponse;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ import rx.Observable;
  */
 public interface CPSCProductName {
     @GET("Recall?format=json")
-    Observable<List<RecallResponse>> getCPSCProductName(@Query("ProductName") String searchTerm);
+    Observable<List<CPSCResponse>> getCPSCProductName(@Query("ProductName") String searchTerm);
 }

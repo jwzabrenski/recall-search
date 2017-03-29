@@ -1,5 +1,5 @@
 
-package com.johnz.recallsearch.models;
+package com.johnz.recallsearch.models.cpsc;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -12,16 +12,16 @@ import java.util.Objects;
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class RecallResponse implements Parcelable{
+public class CPSCResponse implements Parcelable{
 
-//    public RecallResponse(String recallDate, String description, String title) {
+//    public CPSCResponse(String recallDate, String description, String title) {
 //        this.recallDate = recallDate;
 //        this.description = description;
 //        this.title = title;
 //    }
 
     //Read data
-    public RecallResponse (Parcel parcel) {
+    public CPSCResponse(Parcel parcel) {
         recallDate = parcel.readString();
         description = parcel.readString();
         title = parcel.readString();
@@ -40,16 +40,16 @@ public class RecallResponse implements Parcelable{
         dest.writeString(title);
     }
 
-    public static Parcelable.Creator<RecallResponse> CREATOR = new Parcelable.Creator<RecallResponse>() {
+    public static Parcelable.Creator<CPSCResponse> CREATOR = new Parcelable.Creator<CPSCResponse>() {
 
         @Override
-        public RecallResponse createFromParcel(Parcel source) {
-            return new RecallResponse(source);
+        public CPSCResponse createFromParcel(Parcel source) {
+            return new CPSCResponse(source);
         }
 
         @Override
-        public RecallResponse[] newArray(int size) {
-            return new RecallResponse[size];
+        public CPSCResponse[] newArray(int size) {
+            return new CPSCResponse[size];
         }
 
     };
@@ -436,8 +436,8 @@ public class RecallResponse implements Parcelable{
 
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof RecallResponse) {
-            RecallResponse temp = (RecallResponse) obj;
+        if(obj instanceof CPSCResponse) {
+            CPSCResponse temp = (CPSCResponse) obj;
             if(this.recallNumber.equals(temp.recallNumber)) {
                 return true;
             }
