@@ -8,32 +8,55 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.johnz.recallsearch.MainActivity">
-
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="New Activity"
-        android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="sendResults"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text=""
-        android:id="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:textIsSelectable="false" />
+        android:gravity="center"
+        android:id="@+id/relativeLayout">
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:id="@+id/editText"
-        android:text="Enter Search Term Here"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:hint="Enter Search Term Here"
+        android:layout_marginTop="24dp"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/editText"
+        android:onClick="sendResults"/>
+        </RelativeLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:id="@+id/radio_group">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cpsc"
+            android:checked="true"
+            android:text="Search Products"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fda"
+            android:text="Search Food and Drugs"
+            android:onClick="onRadioButtonClicked"/>
+
+
+    </RadioGroup>
 </RelativeLayout>
