@@ -2,8 +2,8 @@ package com.johnz.recallsearch.utilities;
 
 import com.johnz.recallsearch.models.cpsc.CPSCResponse;
 import com.johnz.recallsearch.models.cpsc.CombinedCPSCResponse;
-import com.johnz.recallsearch.rest.CPSCDescription;
-import com.johnz.recallsearch.rest.CPSCProductName;
+import com.johnz.recallsearch.rest.cpsc.CPSCDescription;
+import com.johnz.recallsearch.rest.cpsc.CPSCProductName;
 
 import java.util.List;
 

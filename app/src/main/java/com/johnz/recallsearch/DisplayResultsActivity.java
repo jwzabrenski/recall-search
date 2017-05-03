@@ -16,6 +16,7 @@ import com.johnz.recallsearch.models.cpsc.CPSCResponse;
 import com.johnz.recallsearch.models.cpsc.CombinedCPSCResponse;
 import com.johnz.recallsearch.presenters.ListPresenter;
 import com.johnz.recallsearch.utilities.CPSCClient;
+import com.johnz.recallsearch.utilities.FDAClient;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -27,6 +28,7 @@ public class DisplayResultsActivity extends AppCompatActivity {
     RecallsAdapter adapter;
     ListPresenter mListPresenter;
     CPSCClient mCPSCClient;
+    FDAClient mFDAClient;
     private ProgressBar spinner;
 
     @Override
@@ -36,8 +38,12 @@ public class DisplayResultsActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
         setContentView(R.layout.activity_display_results);
+
+        //Get keyword to search for from intent
         Intent intent = getIntent();
         String keyword = intent.getExtras().getString("keyword");
+
+        //Get agency to use in search from intent
         String agency = intent.getExtras().getString("agency");
         spinner=(ProgressBar)findViewById(R.id.progressBar1);
         spinner.setVisibility(View.VISIBLE);
@@ -53,10 +59,13 @@ public class DisplayResultsActivity extends AppCompatActivity {
         adapter = new RecallsAdapter(R.layout.list_item_recall, context);
         recyclerView.setAdapter(adapter);
 
-        mCPSCClient = new CPSCClient();
+        //mCPSCClient = new CPSCClient();
+        mFDAClient = new FDAClient();
+        //mFDAClient.getInstanceOf();
+        mFDAClient.testRetrofit();
 
-        mListPresenter = new ListPresenter(DisplayResultsActivity.this, mCPSCClient, keyword);
-        mListPresenter.loadRecalls();
+        //mListPresenter = new ListPresenter(DisplayResultsActivity.this, mCPSCClient, keyword);
+        //mListPresenter.loadRecalls();
     }
 
     //Add CPSC results to set and set adapter if results != NULL

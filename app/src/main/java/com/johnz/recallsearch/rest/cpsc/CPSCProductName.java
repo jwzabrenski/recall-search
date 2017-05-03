@@ -1,4 +1,4 @@
-package com.johnz.recallsearch.rest;
+package com.johnz.recallsearch.rest.cpsc;
 
 import com.johnz.recallsearch.models.cpsc.CPSCResponse;
 
